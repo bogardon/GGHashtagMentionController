@@ -7,9 +7,9 @@ this helps you do @mention #hashtag completion by abstracting away the regex log
 The sample implements @mention completion on a `UITextView` by allowing you to select from a list of predefined names in a `UITableView`.
 
 #### How To Use
-Take control of a `UITextView` and become the `delegate`:
+Take control of a `UITextView` and become the `delegate` with the constructor:
 
-    - (void) hashtagMentionController:(GGHashtagMentionController *)hashtagMentionController onMentionWithText:(NSString *)text range:(NSRange)range;
+    - (id) initWithTextView:(UITextView *)textView delegate:(id <GGHashtagMentionDelegate>)delegate;
 
 As the `delegate`, you may implement any of the following:
 
