@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GGHashtagMentionController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <GGHashtagMentionDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end
