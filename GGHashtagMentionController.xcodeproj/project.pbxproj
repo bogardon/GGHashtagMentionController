@@ -19,6 +19,7 @@
 		72664A92160E98EE00B9E819 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72664A91160E98EE00B9E819 /* ViewController.m */; };
 		72664A95160E98EE00B9E819 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72664A93160E98EE00B9E819 /* ViewController.xib */; };
 		72664AA5160E9A3D00B9E819 /* GGHashtagMentionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72664AA4160E9A3D00B9E819 /* GGHashtagMentionController.m */; };
+		72664AA7160EFD4200B9E819 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 72664AA6160EFD4200B9E819 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		72664A94160E98EE00B9E819 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		72664AA3160E9A3D00B9E819 /* GGHashtagMentionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGHashtagMentionController.h; sourceTree = "<group>"; };
 		72664AA4160E9A3D00B9E819 /* GGHashtagMentionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGHashtagMentionController.m; sourceTree = "<group>"; };
+		72664AA6160EFD4200B9E819 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		72664A69160E98ED00B9E819 = {
 			isa = PBXGroup;
 			children = (
+				72664AA6160EFD4200B9E819 /* README.md */,
 				72664A7E160E98EE00B9E819 /* GGHashtagMentionController */,
 				72664A77160E98ED00B9E819 /* Frameworks */,
 				72664A75160E98ED00B9E819 /* Products */,
@@ -176,6 +179,7 @@
 				72664A8D160E98EE00B9E819 /* Default@2x.png in Resources */,
 				72664A8F160E98EE00B9E819 /* Default-568h@2x.png in Resources */,
 				72664A95160E98EE00B9E819 /* ViewController.xib in Resources */,
+				72664AA7160EFD4200B9E819 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
