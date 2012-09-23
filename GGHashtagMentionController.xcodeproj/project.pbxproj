@@ -18,6 +18,7 @@
 		72664A8F160E98EE00B9E819 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72664A8E160E98EE00B9E819 /* Default-568h@2x.png */; };
 		72664A92160E98EE00B9E819 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72664A91160E98EE00B9E819 /* ViewController.m */; };
 		72664A95160E98EE00B9E819 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72664A93160E98EE00B9E819 /* ViewController.xib */; };
+		72664AA5160E9A3D00B9E819 /* GGHashtagMentionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72664AA4160E9A3D00B9E819 /* GGHashtagMentionController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		72664A90160E98EE00B9E819 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		72664A91160E98EE00B9E819 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		72664A94160E98EE00B9E819 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		72664AA3160E9A3D00B9E819 /* GGHashtagMentionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGHashtagMentionController.h; sourceTree = "<group>"; };
+		72664AA4160E9A3D00B9E819 /* GGHashtagMentionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGHashtagMentionController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 		72664A7E160E98EE00B9E819 /* GGHashtagMentionController */ = {
 			isa = PBXGroup;
 			children = (
+				72664AA2160E9A3D00B9E819 /* src */,
 				72664A87160E98EE00B9E819 /* AppDelegate.h */,
 				72664A88160E98EE00B9E819 /* AppDelegate.m */,
 				72664A90160E98EE00B9E819 /* ViewController.h */,
@@ -105,6 +109,15 @@
 				72664A8E160E98EE00B9E819 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		72664AA2160E9A3D00B9E819 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				72664AA3160E9A3D00B9E819 /* GGHashtagMentionController.h */,
+				72664AA4160E9A3D00B9E819 /* GGHashtagMentionController.m */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +189,7 @@
 				72664A85160E98EE00B9E819 /* main.m in Sources */,
 				72664A89160E98EE00B9E819 /* AppDelegate.m in Sources */,
 				72664A92160E98EE00B9E819 /* ViewController.m in Sources */,
+				72664AA5160E9A3D00B9E819 /* GGHashtagMentionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +303,7 @@
 				72664A9A160E98EE00B9E819 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
