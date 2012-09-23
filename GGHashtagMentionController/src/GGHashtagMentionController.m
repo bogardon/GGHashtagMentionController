@@ -51,7 +51,6 @@ NSString * const SpaceChar = @" ";
 - (void) onTextViewTextDidChange:(NSNotification *)notification {
     // don't proceed unless the one we're observing
     if (notification.object == self.textView) {
-        
         // identify the word we're on
         NSUInteger insertionLocation = self.textView.selectedRange.location;
         NSString *fullText = self.textView.text;
@@ -67,19 +66,13 @@ NSString * const SpaceChar = @" ";
             NSString *first = [word substringToIndex:1];
             NSString *rest = [word substringFromIndex:1];
             NSRange range = [fullText rangeOfString:rest options:NSLiteralSearch|NSAnchoredSearch range:NSMakeRange(location+1, rest.length)];
-            if ([first isEqualToString:MentionChar]) {
-                if ([self.delegate respondsToSelector:@selector(hashtagMentionController:onMentionWithText:range:)]) {
-                    [self.delegate hashtagMentionController:self onMentionWithText:rest range:range];
-                }
-            } else if ([first isEqualToString:HashtagChar]) {
-                if ([self.delegate respondsToSelector:@selector(hashtagMentionController:onHashtagWithText:range:)]) {
-                    [self.delegate hashtagMentionController:self onHashtagWithText:rest range:range];
-                }
+            if ([first isEqualToString:MentionChar] && [self.delegate respondsToSelector:@selector(hashtagMentionController:onMentionWithText:range:)]) {
+                [self.delegate hashtagMentionController:self onMentionWithText:rest range:range];
+            } else if ([first isEqualToString:HashtagChar] && [self.delegate respondsToSelector:@selector(hashtagMentionController:onHashtagWithText:range:)]) {
+                [self.delegate hashtagMentionController:self onHashtagWithText:rest range:range];
             }
-        } else {
-            if ([self.delegate respondsToSelector:@selector(hashtagMentionControllerDidFinishWord:)]) {
-                [self.delegate hashtagMentionControllerDidFinishWord:self];
-            }
+        } else if ([self.delegate respondsToSelector:@selector(hashtagMentionControllerDidFinishWord:)]) {
+            [self.delegate hashtagMentionControllerDidFinishWord:self];
         }
     }
 }
