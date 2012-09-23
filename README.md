@@ -23,7 +23,7 @@ The `range` property indicates the range of the `text` in relation to the entire
 
     - (void) hashtagMentionControllerDidFinishWord:(GGHashtagMentionController *)hashtagMentionController;
 
-This gets called if the change in the `text` property ends a word. i,e. by pressing spacebar.
+This gets called if the change in the `text` property ends a word. i.e., by pressing spacebar.
 
 #### License
 
