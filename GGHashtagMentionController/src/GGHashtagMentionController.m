@@ -8,10 +8,6 @@
 
 #import "GGHashtagMentionController.h"
 
-NSString * const MentionChar = @"@";
-NSString * const HashtagChar = @"#";
-NSString * const SpaceChar = @" ";
-
 @interface GGHashtagMentionController () {
     UITextView *_textView;
     id <GGHashtagMentionDelegate> _delegate;
@@ -53,22 +49,25 @@ NSString * const SpaceChar = @" ";
     if (notification.object == self.textView) {
         // identify the word we're on
         NSUInteger insertionLocation = self.textView.selectedRange.location;
-        NSString *fullText = self.textView.text;
-        NSRange spaceBeforeRange = [fullText rangeOfString:SpaceChar options:NSLiteralSearch|NSBackwardsSearch range:NSMakeRange(0, insertionLocation)];
-        NSRange spaceAfterRange = [fullText rangeOfString:SpaceChar options:NSLiteralSearch range:NSMakeRange(insertionLocation, fullText.length-insertionLocation)];
-        NSUInteger location = spaceBeforeRange.location == NSNotFound ? 0 : spaceBeforeRange.location+1;
-        NSUInteger length = spaceAfterRange.location == NSNotFound ? fullText.length-location : spaceAfterRange.location-location;
-        NSRange range = NSMakeRange(location, length);
-        NSString *word = [fullText substringWithRange:range];
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\b[@#\\w]+\\b" options:NSRegularExpressionUseUnicodeWordBoundaries error:NULL];
+        __block NSString *word = nil;
+        __block NSRange range = NSMakeRange(NSNotFound, 0);
+        [regex enumerateMatchesInString:self.textView.text options:0 range:NSMakeRange(0, self.textView.text.length) usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+            if (result.range.location <= insertionLocation && result.range.location+result.range.length >= insertionLocation) {
+                word = [self.textView.text substringWithRange:result.range];
+                range = result.range;
+                *stop = YES;
+            }
+
+        }];
 
         // if word isn't degenerate
-        if (word.length >= 1) {
+        if (word.length >= 1 && range.location != NSNotFound) {
             NSString *first = [word substringToIndex:1];
             NSString *rest = [word substringFromIndex:1];
-            NSRange range = [fullText rangeOfString:rest options:NSLiteralSearch|NSAnchoredSearch range:NSMakeRange(location+1, rest.length)];
-            if ([first isEqualToString:MentionChar] && [self.delegate respondsToSelector:@selector(hashtagMentionController:onMentionWithText:range:)]) {
+            if ([first isEqualToString:@"@"] && [self.delegate respondsToSelector:@selector(hashtagMentionController:onMentionWithText:range:)]) {
                 [self.delegate hashtagMentionController:self onMentionWithText:rest range:range];
-            } else if ([first isEqualToString:HashtagChar] && [self.delegate respondsToSelector:@selector(hashtagMentionController:onHashtagWithText:range:)]) {
+            } else if ([first isEqualToString:@"#"] && [self.delegate respondsToSelector:@selector(hashtagMentionController:onHashtagWithText:range:)]) {
                 [self.delegate hashtagMentionController:self onHashtagWithText:rest range:range];
             }
         } else if ([self.delegate respondsToSelector:@selector(hashtagMentionControllerDidFinishWord:)]) {
